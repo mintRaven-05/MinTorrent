@@ -104,3 +104,6 @@ cd ~/.mintorrent
 > - [x] Make is compatible with magnets
 > - [x] Make is compatible with torrent files
 > - [ ] Add session handling and resume download feature
+
+<p align="center">Copyright &copy; 2024 <a href="https://github.com/mintRaven-05" target="_blank">Debjeet Banerjee</a>
+<p align="center"><a href="https://github.com/mintRaven-05/MinTorrent/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/></a></p>
