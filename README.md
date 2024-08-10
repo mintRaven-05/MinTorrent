@@ -76,6 +76,9 @@ mintorrent --help
 ```
 
 ## Demo Screenshot
+![240810_20h39m43s_screenshot](https://github.com/user-attachments/assets/025cddd1-376c-4e33-ac5c-216af43ed41a)
+![240810_20h45m03s_screenshot](https://github.com/user-attachments/assets/7089b3c6-773a-421e-a9bf-b327b1638f06)
+![240810_20h51m43s_screenshot](https://github.com/user-attachments/assets/0bcbbf2d-83ef-4049-bd6f-5d04b4e8ad81)
 
 ## Update
 
@@ -90,18 +93,14 @@ mintorrent --update
 
 ## Uninstallation
 
-To uninstall MinTorrent from the system you can use following scripts or the following command.
-```bash
-Command:
-mintorrent --uninstall
-```
+To uninstall MinTorrent from the system you can use following script
 ```bash
 Script:
 cd ~/.mintorrent
 ./uninstall.sh
 ```
 
-> [!TODO]
+> #### TODO
 > - [x] Make is compatible with magnets
 > - [x] Make is compatible with torrent files
 > - [ ] Add session handling and resume download feature
