@@ -85,3 +85,13 @@ try:
         print()
 
     # ---------------------------------------------------------------------------------------------------
+    elif flag == "-v" or flag == "--version":
+        print(f"GNU {_TOOL_} v{_VERSION_}")
+        print(f"{_COPYRIGHT_}")
+        print(
+            "This program is a free software; you may redistribute it under the terms of"
+        )
+        print(f"{_LICENSE_}")
+        print(f"Written by {_AUTHOR_}, dated: {_DATE_}")
+        print(f"visit {_WEBSITE_} for more projects")
+    # ---------------------------------------------------------------------------------------------------
