@@ -44,3 +44,14 @@ else
   echo "[+] Preparing to install $package_2. . . "
   sudo pacman -S libtorrent-rasterbar
 fi
+
+if [ -d "$HOME/.local/mintorrent" ]; then
+  cp update.sh $HOME/.local/mintorrent
+  cp VERSION $HOME/.local/mintorrent
+else
+  mkdir $HOME/.local/mintorrent
+  cp update.sh $HOME/.local/mintorrent
+  cp VERSION $HOME/.local/mintorrent
+fi
+
+sleep .5
