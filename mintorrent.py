@@ -21,3 +21,30 @@ try:
     if flag == "-s" or flag == "--search":
         search_term_list = sys.argv[2:]
         search_term = " ".join(search_term_list)
+        # ---------------------------------------------------------------------------------------------------
+        if __name__ == "__main__":
+            magnet = Magnet()
+            try:
+                results, magnet_list = magnet.search_magnets(search_term)
+                magnet.print_magnet_match_table(results)
+
+                choice = magnet.parse_option(len(magnet_list))
+                try:
+                    download = Downloader(magnet_list[choice])
+                    download.get_path()
+                    download.print_download_stub()
+                except Exception:
+                    print(
+                        "\033[33;1m[!] error parsing your choice, going with defaults (option 1)\033[37m"
+                    )
+                    download = Downloader(magnet_list[0])
+                    download.get_path()
+                    download.print_download_stub()
+                print()
+            except KeyboardInterrupt:
+                print()
+            except Exception:
+                print("\033[33;1m[!] error, no magnets found\033[37m")
+        print()
+    # ---------------------------------------------------------------------------------------------------
+
