@@ -13,3 +13,10 @@ echo "[+] removing system links from /usr/bin"
 sleep 0.4
 echo "[+] removing /usr/bin/mintorrent"
 sudo rm -rf /usr/bin/mintorrent
+
+sleep 1
+echo ""
+echo ""
+echo "uninstallation completed"
+echo "thank you for trying out MinTorrent"
+echo "visit https://github.com/mintRaven-05 for more projects"
