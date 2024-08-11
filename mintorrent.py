@@ -15,3 +15,9 @@ _COPYRIGHT_ = "Copyright (C) 2024, Debjeet Banerjee"
 _DATE_ = "10th August, 2024"
 _WEBSITE_ = "https://github.com/mintRaven-05"
 # ---------------------------------------------------------------------------------------------------
+
+try:
+    flag = sys.argv[1]
+    if flag == "-s" or flag == "--search":
+        search_term_list = sys.argv[2:]
+        search_term = " ".join(search_term_list)
