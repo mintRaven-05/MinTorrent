@@ -74,3 +74,22 @@ transfer_files() {
     fi
   done
 }
+
+if [ -d "$HOME/.mintorrent" ]; then
+  transfer_files
+  cp uninstall.sh $HOME/.mintorrent/
+else
+  mkdir $HOME/.mintorrent
+  transfer_files
+  cp uninstall.sh $HOME/.mintorrent/
+fi
+
+echo "[BUILD] creating system links for mintorrent and dependencies"
+sudo ln -s $HOME/.mintorrent/backup/dist/mintorrent/mintorrent /usr/bin/mintorrent
+
+sleep 1.5
+echo ""
+echo "installation completed"
+echo "you can verify your installation by running mintorrent --version"
+echo "to uninstall, go to $HOME/.mintorrent and run sudo uninstall.sh"
+echo "follow me on https://www.github.com/mintRaven-05 for more projects"
