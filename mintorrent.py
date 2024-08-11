@@ -130,3 +130,34 @@ try:
         ]
         print(tabulate(help_tab, headers=head, tablefmt="rounded_outline"))
     # ---------------------------------------------------------------------------------------------------
+    else:
+        print("Usage: mintorrent [OPTION] <keywords>")
+        head = ["Option", "Description"]
+        help_tab = [
+            [
+                "-s, --search",
+                "Allows you to grab magnets web and download them directly through this client, \033[33;1musage: mintorrent -s <search_terms>\033[37m",
+            ],
+            [
+                "-m, --magnet",
+                "Allows you to use magnets stored inside a file and download them, \033[33;1musage: mintorrent -m <path_to_magnet>\033[37m",
+            ],
+            [
+                "-t, --torrent",
+                "Allows you to download from a .torrent file, \033[33;1musage: mintorrent -t <path_to_torrent>\033[37m",
+            ],
+            [
+                "-v, --version",
+                "Shows you details about this tool, \033[33;1musage: mintorrent -v\033[37m",
+            ],
+            [
+                "-u, --update",
+                "Helps you to update this tool, \033[33;1musage: mintorent -u\033[37m",
+            ],
+            [
+                "-h, --help",
+                "Using this option will print this help screen, \033[33;1musage: mintorrent -h\033[37m",
+            ],
+        ]
+        print(tabulate(help_tab, headers=head, tablefmt="rounded_outline"))
+        
