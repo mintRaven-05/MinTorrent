@@ -47,4 +47,26 @@ try:
                 print("\033[33;1m[!] error, no magnets found\033[37m")
         print()
     # ---------------------------------------------------------------------------------------------------
-
+    elif flag == "-m" or flag == "--magnet":
+        magnet_file_list = sys.argv[2:]
+        magnet_file = " ".join(magnet_file_list)
+        with open(magnet_file, "r") as file:
+            magnet_text = file.readlines()[0]
+        if __name__ == "__main__":
+            magnet = Magnet()
+            try:
+                results, magnet_list = magnet.search_magnets(magnet_file)
+                try:
+                    download = Downloader(magnet_text)
+                    download.get_path()
+                    download.print_download_stub()
+                except:
+                    print()
+            except KeyboardInterrupt:
+                print()
+            except Exception:
+                print(
+                    "\033[33;1m[!] error, make sure you have provided the correct file\033[37m"
+                )
+        print()
+    # ---------------------------------------------------------------------------------------------------
