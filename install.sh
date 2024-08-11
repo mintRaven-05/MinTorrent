@@ -18,3 +18,19 @@ else
 fi
 
 sleep 1
+
+echo "[INIT] starting installer"
+echo "[INIT] preparing the files. . ."
+echo "[INIT] preparing to download dependencies. . ."
+sleep 0.8
+
+package_1=libtorrent
+if pacman -Qs $package_1 >/dev/null; then
+  echo "[+] The package $package_1 is installed"
+  echo "[+] Skipping libtorrent installation"
+else
+  echo "[!] The package $package_1 is not installed"
+  echo "[+] Preparing to install $package_1. . . "
+
+  sudo pacman -S libtorrent
+fi
