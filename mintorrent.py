@@ -160,4 +160,8 @@ try:
             ],
         ]
         print(tabulate(help_tab, headers=head, tablefmt="rounded_outline"))
+except IndexError:
+    print("Usage: mintorrent [OPTION] <keywords>")
+    print("use mintorrent -h or mintorrent --help for more information")
+    print("about the usage.")
         
