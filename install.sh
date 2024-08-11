@@ -55,3 +55,22 @@ else
 fi
 
 sleep .5
+
+echo "[BUILD] mintorrent build file exists"
+echo "[BUILD] moving build files"
+
+transfer_files() {
+  for file in *; do
+    if [ -f "$file" ]; then
+      cp $file $HOME/.mintorrent/backup/
+      echo "[!] copying $file to $HOME/.mintorrent/backup/"
+      sleep .3
+    elif [ -d "$file" ]; then
+      cp -r $file $HOME/.mintorrent/backup/
+      echo "[!] copying ./$file to $HOME/.mintorrent/backup/"
+    else
+      echo "[*] unexpected error caused while installation!"
+      exit 1
+    fi
+  done
+}
