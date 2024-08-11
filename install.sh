@@ -34,3 +34,13 @@ else
 
   sudo pacman -S libtorrent
 fi
+
+package_2=libtorrent-rasterbar
+if pacman -Qs $package_2 >/dev/null; then
+  echo "[+] The package $package_2 is installed"
+  echo "[+] Skipping libtorrent installation"
+else
+  echo "[!] The package $package_2 is not installed"
+  echo "[+] Preparing to install $package_2. . . "
+  sudo pacman -S libtorrent-rasterbar
+fi
