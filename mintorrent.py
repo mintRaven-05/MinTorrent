@@ -70,3 +70,18 @@ try:
                 )
         print()
     # ---------------------------------------------------------------------------------------------------
+    elif flag == "-t" or flag == "--torrent":
+        torrent_file_list = sys.argv[2:]
+        torrent_file = " ".join(torrent_file_list)
+        if __name__ == "__main__":
+            torrent = Torrent(torrent_file)
+            try:
+                torrent.get_path()
+                torrent.print_download_stub()
+            except:
+                print(
+                    "\033[33;1m[!] error, make sure you have provided the correct file\033[37m"
+                )
+        print()
+
+    # ---------------------------------------------------------------------------------------------------
