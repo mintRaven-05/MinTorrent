@@ -54,3 +54,23 @@ class Magnet:
             "udp://tracker.tiny-vps.com:6969/announce"
             "udp://tracker.stealth.si:80/announce",
         ]
+    def convert_size(self, size_bytes: int):
+        if size_bytes == 0:
+            return "0B"
+        size_name = ("B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB")
+        i = int(math.floor(math.log(size_bytes, 1024)))
+        p = math.pow(1024, i)
+        s = round(size_bytes / p, 2)
+        return "%s %s" % (s, size_name[i])
+
+    def gen_tracker_stub(self):
+        self.trackers = [quote(tr) for tr in self.trackers]
+        return "&tr=".join(self.trackers)
+
+    def classify_category(self, category_id):
+        category_id = int(category_id[0])
+        category_id = category_id if category_id < len(self.category_list) - 1 else -1
+        return self.category_list[category_id]
+
+    def gen_magnet(self, info_hash, name):
+        return f"magnet:?xt=urn:btih:{info_hash}&dn={quote(name)}&tr={self.gen_tracker_stub()}"
