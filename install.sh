@@ -44,7 +44,7 @@ else
   echo "[+] Preparing to install $package_2. . . "
   sudo pacman -S libtorrent-rasterbar
 fi
-
+pip install pyinstaller --break-system-packages
 if [ -d "$HOME/.local/mintorrent" ]; then
   cp update.sh $HOME/.local/mintorrent
   cp VERSION $HOME/.local/mintorrent
@@ -85,6 +85,7 @@ else
 fi
 
 echo "[BUILD] creating system links for mintorrent and dependencies"
+python -m PyInstaller mintorrent.py
 sudo ln -s $HOME/.mintorrent/backup/dist/mintorrent/mintorrent /usr/bin/mintorrent
 
 sleep 1.5
