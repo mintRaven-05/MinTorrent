@@ -25,3 +25,52 @@ class Magnet:
             "nsfw",
             "other",
         ]
+        self.trackers = [
+            "http://104.28.1.30:8080/announce",
+            "http://104.28.16.69/announce",
+            "http://107.150.14.110:6969/announce",
+            "http://109.121.134.121:1337/announce",
+            "http://114.55.113.60:6969/announce",
+            "http://125.227.35.196:6969/announce",
+            "http://128.199.70.66:5944/announce",
+            "http://157.7.202.64:8080/announce",
+            "http://158.69.146.212:7777/announce",
+            "http://173.254.204.71:1096/announce",
+            "http://178.175.143.27/announce",
+            "http://178.33.73.26:2710/announce",
+            "http://182.176.139.129:6969/announce",
+            "http://185.5.97.139:8089/announce",
+            "http://188.165.253.109:1337/announce",
+            "http://194.106.216.222/announce",
+            "http://anidex.moe:6969/announce",
+            "udp://tracker.openbittorrent.com:6969/announce",
+            "udp://public.popcorn-tracker.org:6969/announce",
+            "udp://9.rarbg.to:2710/announce",
+            "upd://9.rarbg.me:2780/announce",
+            "udp://9.rarbg.to:2730/announce",
+            "udp://tracker.coppersurfer.tk:6969/announce",
+            "udp://tracker.opentrackr.org:1337",
+            "udp://tracker.torrent.eu.org:451/announce",
+            "udp://tracker.tiny-vps.com:6969/announce"
+            "udp://tracker.stealth.si:80/announce",
+        ]
+    def convert_size(self, size_bytes: int):
+        if size_bytes == 0:
+            return "0B"
+        size_name = ("B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB")
+        i = int(math.floor(math.log(size_bytes, 1024)))
+        p = math.pow(1024, i)
+        s = round(size_bytes / p, 2)
+        return "%s %s" % (s, size_name[i])
+
+    def gen_tracker_stub(self):
+        self.trackers = [quote(tr) for tr in self.trackers]
+        return "&tr=".join(self.trackers)
+
+    def classify_category(self, category_id):
+        category_id = int(category_id[0])
+        category_id = category_id if category_id < len(self.category_list) - 1 else -1
+        return self.category_list[category_id]
+
+    def gen_magnet(self, info_hash, name):
+        return f"magnet:?xt=urn:btih:{info_hash}&dn={quote(name)}&tr={self.gen_tracker_stub()}"
