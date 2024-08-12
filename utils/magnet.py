@@ -74,3 +74,30 @@ class Magnet:
 
     def gen_magnet(self, info_hash, name):
         return f"magnet:?xt=urn:btih:{info_hash}&dn={quote(name)}&tr={self.gen_tracker_stub()}"
+    def gen_match_table(self, results):
+        index = 1
+        max = 1
+        match = []
+        if results.status_code == 200:
+            data = results.json()
+            if data and "no results" in data[0]["name"].lower():
+                return self.magnets
+            for item in data:
+                if max <= 20:
+                    match.append(
+                        [
+                            index,
+                            item["seeders"],
+                            item["leechers"],
+                            item["name"],
+                            self.convert_size(int(item["size"])),
+                            self.classify_category(item["category"]),
+                            item["info_hash"],
+                        ]
+                    )
+                    self.magnets.append(
+                        self.gen_magnet(item["info_hash"], item["name"])
+                    )
+                else:
+                    break
+        return (match, self.magnets)
