@@ -60,4 +60,36 @@ class Downloader:
             print(
                 "\033[33;1m[!] error generating download stub, could not add magnet to session\033[37m"
             )
-
+    def print_download_stub(self):
+        try:
+            stub = self.gen_download_stub()
+            print("\n")
+            print("\033[32;1m[+] Starting download\033[37m")
+            print("\033[36;1m[+] Saving to : \033[37m", self.expanded_path)
+            print("\033[36;1m[+] File Name: \033[37m", stub.name)
+            print("\n")
+            while not stub.is_seeding:
+                stub = self.gen_download_stub()
+                _percentage_done = stub.progress * 100
+                count = math.ceil(_percentage_done / 2)
+                progress_bar = "\033[32;1m▰\033[37m" * count + "\033[31;1m▰\033[37m" * (
+                    50 - count
+                )
+                total_size_done = self.convert_size(stub.total_done)
+                print(
+                    "\033[1K\033[0G\r\033[32;1m%.2f%% \033[96;1m%s\033[37m (\033[36;1mD: %.1f Kb/S   \033[33;1mU: %.1f Kb/S\033[37m, \033[35;1mPeers: %d\033[37m) %s %s"
+                    % (
+                        stub.progress * 100,
+                        progress_bar,
+                        stub.download_rate / 100,
+                        stub.upload_rate / 100,
+                        stub.num_peers,
+                        stub.state,
+                        total_size_done,
+                    ),
+                    end=" ",
+                    flush=True,
+                )
+        except KeyboardInterrupt:
+            print("\n\033[31;1m[~] exiting . . .\033[37m")
+            sys.exit(0)
