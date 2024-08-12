@@ -121,7 +121,7 @@ try:
             ],
             [
                 "-u, --update",
-                "Helps you to update this tool, \033[33;1musage: mintorent -u\033[37m",
+                "Helps you to update this tool, \033[33;1musage: not yet implemented but will be soon\033[37m",
             ],
             [
                 "-h, --help",
@@ -152,7 +152,7 @@ try:
             ],
             [
                 "-u, --update",
-                "Helps you to update this tool, \033[33;1musage: mintorent -u\033[37m",
+                "Helps you to update this tool, \033[33;1musage: not yet implemented but will be soon\033[37m",
             ],
             [
                 "-h, --help",
