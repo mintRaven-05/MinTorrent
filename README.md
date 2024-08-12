@@ -10,6 +10,7 @@
 It is a Linux-based CLI torrent client. It serves the purpose of being lightweight, efficient fast and easy to use interface. Works both with magnets and torrent files, and also comes with a magnet searching feature. Ideal for users who prefer CLI over GUI.
 
 > [!IMPORTANT]
+> If the mintorrent doesnt work even after installation. Try installing it once again without uninstalling it!
 > The installer script is only compatible with Arch and Debian based distros. If you want to install it in any other distros other than arch and debian, you need to install the dependencies manually
 
 ## Installation
