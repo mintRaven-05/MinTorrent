@@ -82,6 +82,8 @@ mintorrent --help
 
 ## Update
 
+>[!NOTE]
+>Update feature is not yet implemented. Add this project to your watchlist if you want to use this tool.
 To update MinTorrent to the latest version, use the following command
 ```bash
 mintorrent -u
