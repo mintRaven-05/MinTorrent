@@ -98,6 +98,8 @@ class Magnet:
                     self.magnets.append(
                         self.gen_magnet(item["info_hash"], item["name"])
                     )
+                    index += 1
+                    max += 1
                 else:
                     break
         return (match, self.magnets)
