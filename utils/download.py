@@ -93,3 +93,7 @@ class Downloader:
         except KeyboardInterrupt:
             print("\n\033[31;1m[~] exiting . . .\033[37m")
             sys.exit(0)
+        except Exception:
+            print("\n\033[31;1merror occured while downloading...\033[37m")
+            print("\033[31;1m[~]exiting...\033[37m")
+            sys.exit(0)
