@@ -103,3 +103,48 @@ class Magnet:
                 else:
                     break
         return (match, self.magnets)
+    def search_magnets(self, search_param: str):
+        agent = "Mozilla/5.0 (X11; Linux x86_64; rv:99.0) Gecko/20100101 Firefox/99.0"
+        url = f"https://apibay.org/q.php?q={quote(search_param)}"
+        results = get(url, headers={"agent": agent})
+        return self.gen_match_table(results)
+
+    def print_magnet_match_table(self, magnet_list):
+        print(
+            tabulate(
+                magnet_list,
+                showindex=False,
+                headers=self.table_header,
+                tablefmt="simple",
+                numalign="center",
+            )
+        )
+
+    def parse_option(self, magnet_list_length):
+        option = 0
+        try:
+            option = int(input("\n\033[32;1m[?] which magnet do you pick: \033[37m"))
+            if option < 0 or option > magnet_list_length:
+                print(
+                    "\033[33;1m[!] error parsing option, going with defaults (option 1)\033[37m"
+                )
+                option = 0
+                return option
+            elif option > 0:
+                option = option - 1
+                return option
+        except KeyboardInterrupt:
+            print("\033[31;1m\n[~] exiting . . .\033[37m")
+            sys.exit(0)
+        except ValueError:
+            print(
+                "\033[33;1m[!] error parsing option, going with defaults (option 1)\033[37m"
+            )
+            option = 0
+            return option
+        except TypeError:
+            print(
+                "\033[33;1m[!] error parsing option, going with defaults (option 1)\033[37m"
+            )
+            option = 0
+            return option
