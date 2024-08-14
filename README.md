@@ -11,7 +11,7 @@ It is a Linux-based CLI torrent client. It serves the purpose of being lightweig
 
 > [!IMPORTANT]
 > If the mintorrent doesnt work even after installation. Try installing it once again without uninstalling it!
-> The installer script is only compatible with Arch and Debian based distros. If you want to install it in any other distros other than arch and debian, you need to install the dependencies manually
+> The installer script is only compatible with Arch based distros. If you want to install it in any other distros other than arch, you need to install the dependencies manually
 
 ## Installation
 
